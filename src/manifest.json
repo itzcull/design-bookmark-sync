@@ -4,11 +4,11 @@
   "description": "Chrome extension for syncing Traversey Media design resources repo to bookmarks",
   "version": "0.0.1",
   "icons": {
-    "64": "assets/trav_logo.png"
+    "128": "assets/trav_logo.png"
   },
   "action": {
     "default_icon": {
-      "64": "assets/trav_logo.png"
+      "128": "assets/trav_logo.png"
     }
   },
   "permissions": ["bookmarks"],
