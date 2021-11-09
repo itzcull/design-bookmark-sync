@@ -4,16 +4,16 @@
   "description": "Chrome extension for syncing Traversey Media design resources repo to bookmarks",
   "version": "0.0.1",
   "icons": {
-    "64": "trav_logo.png"
+    "64": "assets/trav_logo.png"
   },
-  "options_page": "settings/settings.html",
   "action": {
-    "default_title": "Chrome Addon v3 Starter",
-    "default_popup": "popup/popup.html"
+    "default_icon": {
+      "64": "assets/trav_logo.png"
+    }
   },
-  "permissions": [],
+  "permissions": ["bookmarks"],
   "host_permissions": ["*://*/*"],
   "background": {
-    "service_worker": "service-worker.js"
+    "service_worker": "background.js"
   }
 }

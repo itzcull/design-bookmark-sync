@@ -1,9 +1,8 @@
 {
-  "name": "Traversey-Design-Sync",
+  "name": "traversey-design-sync",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "webpack"
   },
   "repository": "git@github.com:itzcull/Traversey-Design-Bookmarks-Extension",
   "author": "Will Cullen <itzcull@protonmail.com>",
@@ -11,8 +10,15 @@
   "devDependencies": {
     "@types/chrome": "^0.0.163",
     "@types/marked": "^4.0.0",
+    "@types/web": "^0.0.46",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
     "typescript": "^4.4.4",
-    "webpack": "^5.62.1"
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "marked": "^4.0.0"
