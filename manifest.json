@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Traversey Design Sync",
+  "description": "Chrome extension for syncing Traversey Media design resources repo to bookmarks",
+  "version": "0.0.1",
+  "icons": {
+    "64": "trav_logo.png"
+  },
+  "options_page": "settings/settings.html",
+  "action": {
+    "default_title": "Chrome Addon v3 Starter",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "service-worker.js"
+  }
+}
