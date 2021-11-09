@@ -8,7 +8,7 @@ https://github.com/bradtraversy/design-resources-for-developers
 
 ## Installation
 
-1. Clone the repo with `git clone https://github.com/itzcull/Traversey-Design-Bookmarks-Extension`
+1. Clone the repo with `git clone https://github.com/itzcull/traversey-design-bookmark-sync-extension`
 2. In the cloned repo directory run: `yarn && yarn build`
 3. Load the ./dist as a chrome extension package.
 
