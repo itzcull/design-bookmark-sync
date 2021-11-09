@@ -23,7 +23,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: './src/manifest.json', to: './manifest.json' },
-        { from: './src/assets/trav_logo.png', to: './assets/trav_logo.png' },
+        { from: './src/**/*.png', to: './assets/[name].png' },
       ],
     }),
   ],
