@@ -6,6 +6,7 @@
   "icons": {
     "128": "assets/trav_logo.png"
   },
+  "options_page": "options.html",
   "action": {
     "default_icon": {
       "128": "assets/trav_logo.png"

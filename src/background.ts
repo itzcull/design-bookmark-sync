@@ -1,16 +1,25 @@
 import { marked } from 'marked';
 
+const HOURS = 1;
 const BOOKMARKS_ROOT_ID = '1';
 const URL =
   'https://raw.githubusercontent.com/bradtraversy/design-resources-for-developers/master/readme.md';
 
-const getResourceText = async (url: string) => {
-  return fetch(url)
-    .then((response) => response.text())
-    .catch((error) => {
-      console.log(error);
-      return '';
-    });
+const getRemoteText = async (url: string) =>
+  fetch(url).then((response) => response.text());
+
+const isDifferentFile = async (newString: string): Promise<boolean> => {
+  const newHash = await crypto.subtle.digest('SHA-256', Buffer.from(newString));
+  const oldHash = await chrome.storage.sync
+    .get('hash')
+    .then((result) => result.hash);
+
+  if (oldHash !== newHash) {
+    chrome.storage.sync.set({ hash: newHash });
+    return true;
+  } else {
+    return false;
+  }
 };
 
 const createFolder = async (
@@ -48,10 +57,7 @@ const createBookmark = async (folderId: string, title: string, url: string) => {
   return id;
 };
 
-chrome.action.onClicked.addListener(async function (tab: chrome.tabs.Tab) {
-  console.log('Fetching Traversey Design Resources...');
-  const markdownString: string = await getResourceText(URL);
-
+const setNewBookmarks = async (markdownString: string) => {
   // Parse markdown for design resources
   const markdownTokens = marked.lexer(markdownString);
 
@@ -114,5 +120,18 @@ chrome.action.onClicked.addListener(async function (tab: chrome.tabs.Tab) {
       shared.flag = false;
     }
   }
-  chrome.action.setIcon({ path: 'assets/trav_logo_tick.png' });
-});
+};
+
+// Change checking interval
+
+setInterval(async () => {
+  const markdownString: string = await getRemoteText(URL);
+  const isDifferent = await isDifferentFile(markdownString);
+
+  if (isDifferent) {
+    setNewBookmarks(markdownString);
+    chrome.action.setBadgeText({
+      text: `Last updated: ${new Date().toLocaleDateString()}`,
+    });
+  }
+}, 1000 * 60 * 60 * HOURS);

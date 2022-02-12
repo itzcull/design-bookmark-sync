@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ES6" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "module": "ES6" /* Specify what module code is generated. */,
+    "lib": ["es6"] /* Specify which libraries to include in the compilation. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */,
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
     "strict": true /* Enable all strict type-checking options. */,
