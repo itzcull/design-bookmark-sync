@@ -8,7 +8,7 @@
   "author": "Will Cullen <itzcull@protonmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/chrome": "^0.0.163",
+    "@types/chrome": "^0.0.329",
     "@types/marked": "^4.0.0",
     "copy-webpack-plugin": "^9.0.1",
     "prettier": "2.4.1",
